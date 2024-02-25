@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:7-alpine
+    command: /bin/sh -c "redis-server --requirepass $$REDIS_HOST_PASSWORD"
+    restart: always
+    ports:
+      - "6379:6379"
+    environment:
+      REDIS_HOST: redis
+      REDIS_HOST_PASSWORD: secret
+  redis-insight:
+    image: redis/redisinsight:latest
+    restart: always
+    ports:
+      - "5540:5540"
+    volumes:
+      - redis-insight:/data
+
+volumes:
+  redis-insight:
