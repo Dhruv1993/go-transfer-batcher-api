@@ -57,6 +57,11 @@ Follow these steps to run the Transfer Money API:
 To run the docker-compose, use the following command:
 
 ```bash
+make run-tidy
+### download dependencies
+```
+
+```bash
 make run-redis
 ### Run redis and redis-insight
 ```
