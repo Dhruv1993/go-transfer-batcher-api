@@ -1,6 +1,6 @@
 ## Transfer Money API
 
-This is also a task for Upwork.The Transfer Money API is a Go-based application designed to mimic money transfers while incorporating a batching mechanism to enhance concurrency and performance.
+This is a task for Upwork.The Transfer Money API is a Go-based application designed to mimic money transfers while incorporating a batching mechanism to enhance concurrency and performance.
 
 ## Project Structure
 
