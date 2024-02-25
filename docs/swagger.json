@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/api/v1/transfer": {
+            "post": {
+                "description": "Process a money transfer between accounts",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Transfer money between accounts",
+                "operationId": "transfer",
+                "parameters": [
+                    {
+                        "description": "Transfer request",
+                        "name": "200",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/microBatchService.TransferRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transfer processed successfully",
+                        "schema": {
+                            "$ref": "#/definitions/microBatchService.TransferResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "microBatchService.Transfer": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "fromAccount": {
+                    "type": "string"
+                },
+                "toAccount": {
+                    "type": "string"
+                }
+            }
+        },
+        "microBatchService.TransferRequest": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "from_account": {
+                    "type": "string"
+                },
+                "to_account": {
+                    "type": "string"
+                }
+            }
+        },
+        "microBatchService.TransferResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "transfer": {
+                    "$ref": "#/definitions/microBatchService.Transfer"
+                }
+            }
+        }
+    }
+}

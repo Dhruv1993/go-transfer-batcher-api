@@ -17,6 +17,16 @@ services:
       - "5540:5540"
     volumes:
       - redis-insight:/data
+  swagger-ui:
+    image: swaggerapi/swagger-ui:latest
+    restart: always
+    ports:
+      - "8090:8080"
+    environment:
+      SWAGGER_JSON: /api/v1/swagger.json
+      BASE_PATH: /api/v1
+    volumes:
+      - ./docs:/api/v1
 
 volumes:
   redis-insight:

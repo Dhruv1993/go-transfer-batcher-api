@@ -1,16 +1,17 @@
 package main
 
 import (
-	app "github.com/Dhruv1993/app"
-	"github.com/Dhruv1993/app/services"
-	"github.com/Dhruv1993/app/services/gateway"
-	"github.com/Dhruv1993/app/services/microBatchService"
-	"github.com/go-redis/redis/v8"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+
+	app "github.com/Dhruv1993/app"
+	"github.com/Dhruv1993/app/services"
+	"github.com/Dhruv1993/app/services/gateway"
+	"github.com/Dhruv1993/app/services/microBatchService"
+	"github.com/go-redis/redis/v8"
 )
 
 type Client struct {
@@ -22,7 +23,7 @@ func NewRedisClient() *Client {
 	return &Client{
 		client: redis.NewClient(&redis.Options{
 			Addr:     "localhost:6379",
-			Password: "secret", // No password
+			Password: "secret", 
 			DB:       0,        // Default DB
 		}),
 	}
@@ -43,6 +44,8 @@ func main() {
 		sig := <-sc
 		log.Panicf("Caught sig: %+v", sig)
 	})
+
+
 
 	log.Printf("Listening at: http://%s", ":5001")
 	if err := http.ListenAndServe(":5001", g.Handler); err != nil {

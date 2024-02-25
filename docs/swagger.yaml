@@ -1,0 +1,51 @@
+definitions:
+  microBatchService.Transfer:
+    properties:
+      amount:
+        type: number
+      fromAccount:
+        type: string
+      toAccount:
+        type: string
+    type: object
+  microBatchService.TransferRequest:
+    properties:
+      amount:
+        type: number
+      from_account:
+        type: string
+      to_account:
+        type: string
+    type: object
+  microBatchService.TransferResponse:
+    properties:
+      message:
+        type: string
+      transfer:
+        $ref: '#/definitions/microBatchService.Transfer'
+    type: object
+info:
+  contact: {}
+paths:
+  /api/v1/transfer:
+    post:
+      consumes:
+      - application/json
+      description: Process a money transfer between accounts
+      operationId: transfer
+      parameters:
+      - description: Transfer request
+        in: body
+        name: "200"
+        required: true
+        schema:
+          $ref: '#/definitions/microBatchService.TransferRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Transfer processed successfully
+          schema:
+            $ref: '#/definitions/microBatchService.TransferResponse'
+      summary: Transfer money between accounts
+swagger: "2.0"

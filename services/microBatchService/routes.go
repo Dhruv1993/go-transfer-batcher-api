@@ -13,7 +13,7 @@ func (s Service) InitRoutes(r chi.Router, urlPrefix string) {
 		r.Group(func(r chi.Router) {
 			r.Route("/transfer", func(r chi.Router) {
 				r.Group(func(r chi.Router) {
-					r.Method(http.MethodPost, "/", s.TaskHandler())
+					r.Method(http.MethodPost, "/", s.TransferHandler())
 				})
 			})
 		})

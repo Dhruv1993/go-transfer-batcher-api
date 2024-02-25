@@ -61,7 +61,7 @@ make run-tidy
 ### download dependencies
 ```
 
-To run the docker-compose, use the following command:
+To run the docker-compose, use the following command. It will also run swagger ui:
 
 ```bash
 make run-redis
@@ -73,5 +73,13 @@ To run the API gateway, use the following command:
 ```bash
 make run-gateway
 ### Run Gateway
+
+```
+
+## Swagger
+
+```bash
+http://localhost:8090/
+### Swagger
 
 ```
