@@ -54,12 +54,14 @@ Follow these steps to run the Transfer Money API:
 3. Clone the repository: `git clone <repository-url>`
 4. Navigate to the project root: `cd <project-directory>`
 
-To run the docker-compose, use the following command:
+Download dependencies
 
 ```bash
 make run-tidy
 ### download dependencies
 ```
+
+To run the docker-compose, use the following command:
 
 ```bash
 make run-redis
