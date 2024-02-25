@@ -24,7 +24,7 @@ services:
       - "8090:8080"
     environment:
       SWAGGER_JSON: /api/v1/swagger.json
-      BASE_PATH: /api/v1
+      BASE_PATH:
     volumes:
       - ./docs:/api/v1
 
